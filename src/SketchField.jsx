@@ -610,14 +610,31 @@ class SketchField extends PureComponent {
       top: (canvas.getHeight() - iText.height) * 0.5,
     };
     Object.assign(options, opts);
-    iText.set({
-      left: options.left,
-      top: options.top,
-    });
-
-    if(typeof options.fontFamily !== "undefined"){
-      canvas.getActiveObject().set("fontFamily", options.fontFamily);
-      canvas.requestRenderAll();
+    if(typeof options.fontFamily !== "undefined" && 
+      typeof options.fill !== 'undefined'){
+      iText.set({
+        left: options.left,
+        top: options.top,
+        fontFamily: options.fontFamily,
+        fill: options.fill
+      });
+    }else if(typeof options.fontFamily !== "undefined"){
+      iText.set({
+        left: options.left,
+        top: options.top,
+        fontFamily: options.fontFamily,
+      });
+    }else if(typeof options.fill !== 'undefined'){
+      iText.set({
+        left: options.left,
+        top: options.top,
+        fill: options.fill,
+      });
+    }else{
+      iText.set({
+        left: options.left,
+        top: options.top
+      });
     }
     canvas.add(iText);
   };

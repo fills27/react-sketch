@@ -265,7 +265,7 @@ class SketchFieldDemo extends React.Component {
     }
   };
 
-  _addText = () => this._sketch.addText(this.state.text);
+  _addText = () => this._sketch.addText(this.state.text, {fontFamily: "Open Sans, sans-serif"});
 
   componentDidMount = () => {
     (function (console) {
