@@ -615,6 +615,10 @@ class SketchField extends PureComponent {
       top: options.top,
     });
 
+    if(typeof options.fontFamily !== "undefined"){
+      canvas.getActiveObject().set("fontFamily", options.fontFamily);
+      canvas.requestRenderAll();
+    }
     canvas.add(iText);
   };
 
