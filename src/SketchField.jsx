@@ -9,14 +9,17 @@ import Tool from "./tools";
 import DefaultTool from "./tools/defaul-tool";
 import Select from "./tools/Select";
 import Pencil from "./tools/Pencil";
+import Eraser from "./tools/Eraser";
 import Line from "./tools/Line";
 import Rectangle from "./tools/Rectangle";
 import RectangleLabel from "./tools/Rectangle/rectangle-label";
 import Circle from "./tools/Circle";
 import Pan from "./tools/Pan";
 import Highlighter from "./tools/Highlighter";
+import { fabric } from "fabric";
 
-const fabric = require("fabric").fabric;
+fabric.Object.NUM_FRACTION_DIGITS = 12;
+fabric.Object.prototype.erasable = true;
 
 /**
  * Sketch Tool based on FabricJS for React Applications
@@ -112,6 +115,7 @@ class SketchField extends PureComponent {
     this._tools = {};
     this._tools[Tool.Select] = new Select(fabricCanvas);
     this._tools[Tool.Pencil] = new Pencil(fabricCanvas);
+    this._tools[Tool.Eraser] = new Eraser(fabricCanvas);
     this._tools[Tool.Line] = new Line(fabricCanvas);
     this._tools[Tool.Arrow] = new Arrow(fabricCanvas);
     this._tools[Tool.Rectangle] = new Rectangle(fabricCanvas);
@@ -281,7 +285,7 @@ class SketchField extends PureComponent {
     // Update the final state to new-generated object
     // Ignore Path object since it would be created after mouseUp
     // Assumed the last object in canvas.getObjects() in the newest object
-    if (this.props.tool !== Tool.Pencil) {
+    if (this.props.tool !== Tool.Pencil && this.props.tool !== Tool.Eraser) {
       const canvas = this._fc;
       const objects = canvas.getObjects();
       const newObj = objects[objects.length - 1];

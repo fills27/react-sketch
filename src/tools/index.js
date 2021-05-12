@@ -4,6 +4,7 @@ import Highlighter from "./Highlighter";
 import Line from "./Line";
 import Pan from "./Pan";
 import Pencil from "./Pencil";
+import Eraser from "./Eraser";
 import Rectangle from "./Rectangle";
 import RectangleLabel from "./Rectangle/rectangle-label";
 import Select from "./Select/index";
@@ -16,6 +17,7 @@ export default {
   Line,
   Pan,
   Pencil,
+  Eraser,
   Rectangle,
   RectangleLabel,
   Select,

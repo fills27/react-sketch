@@ -3,6 +3,7 @@ export default {
   Line: "line",
   Arrow: "arrow",
   Pencil: "pencil",
+  Eraser: "eraser",
   Rectangle: "rectangle",
   RectangleLabel: "rectangle-label",
   Select: "select",

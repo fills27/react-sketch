@@ -258,6 +258,7 @@ class SketchFieldDemo extends React.Component {
             stretchedY: stretchedY,
             originX: originX,
             originY: originY,
+            erasable: false,
           }),
         false
       );
@@ -265,7 +266,7 @@ class SketchFieldDemo extends React.Component {
     }
   };
 
-  _addText = () => this._sketch.addText(this.state.text, {fontFamily: "Open Sans, sans-serif"});
+  _addText = () => this._sketch.addText(this.state.text, {fontFamily: "Open Sans, sans-serif", fill: 'red'});
 
   componentDidMount = () => {
     (function (console) {
@@ -317,6 +318,9 @@ class SketchFieldDemo extends React.Component {
         secondary: { main: "#11cb5f" }, // This is just green.A700 as hex.
       },
     });
+
+    console.log(Tools.Pencil, 'eraser');
+
     return (
       <MuiThemeProvider theme={theme}>
         <div className="row">
@@ -415,6 +419,9 @@ class SketchFieldDemo extends React.Component {
                         </MenuItem>
                         <MenuItem value={Tools.Pencil} key="Pencil">
                           Pencil
+                        </MenuItem>
+                        <MenuItem value={Tools.Eraser} key="Eraser">
+                          Eraser
                         </MenuItem>
                         <MenuItem value={Tools.Line} key="Line">
                           Line
