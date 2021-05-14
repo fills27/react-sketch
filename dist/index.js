@@ -13665,6 +13665,7 @@ object-assign
                         (i.componentDidUpdate = function (t, e) {
                             (i.props.width === t.width && i.props.height === t.height) || i._resize(),
                                 i.props.tool !== t.tool && ((i._selectedTool = i._tools[i.props.tool]), (i._fc.defaultCursor = "default"), i._selectedTool && i._selectedTool.configureCanvas(i.props)),
+                                i.props.lineColor !== t.lineColor && ((i._selectedTool = i._tools[i.props.tool]), (i._fc.defaultCursor = "default"), i._selectedTool && i._selectedTool.configureCanvas(i.props)),
                                 i.props.backgroundColor !== t.backgroundColor && i._backgroundColor(i.props.backgroundColor),
                                 (i.props.value !== t.value || (i.props.value && i.props.forceValue)) && i.fromJSON(i.props.value);
                         }),
