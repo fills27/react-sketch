@@ -13573,9 +13573,8 @@ object-assign
                       (i.setBackgroundFromDataUrl = function (t) {
                           var e = 1 < arguments.length && void 0 !== arguments[1] ? arguments[1] : {},
                               r = i._fc,
-                              o = new Image();
-                          o.setAttribute("crossOrigin", "anonymous");
-                          var s = e.stretched,
+                              o = new Image(),
+                              s = e.stretched,
                               a = e.stretchedX,
                               h = e.stretchedY,
                               c = n()(e, ["stretched", "stretchedX", "stretchedY"]);
