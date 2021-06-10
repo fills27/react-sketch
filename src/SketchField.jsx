@@ -603,7 +603,7 @@ class SketchField extends PureComponent {
         fabricOptions
       );
     };
-    img.src = dataUrl;
+    img.src = dataUrl + "?not-from-cache-please";
   };
 
   addText = (text, options = {}) => {

@@ -13573,8 +13573,9 @@ object-assign
                       (i.setBackgroundFromDataUrl = function (t) {
                           var e = 1 < arguments.length && void 0 !== arguments[1] ? arguments[1] : {},
                               r = i._fc,
-                              o = new Image(),
-                              s = e.stretched,
+                              o = new Image();
+                          o.setAttribute("crossOrigin", "Anonymous");
+                          var s = e.stretched,
                               a = e.stretchedX,
                               h = e.stretchedY,
                               c = n()(e, ["stretched", "stretchedX", "stretchedY"]);
@@ -13590,7 +13591,7 @@ object-assign
                                       c
                                   );
                           }),
-                              (o.src = t);
+                              (o.src = t + "?not-from-cache-please");
                       }),
                       (i.addText = function (t) {
                           var e = 1 < arguments.length && void 0 !== arguments[1] ? arguments[1] : {},
